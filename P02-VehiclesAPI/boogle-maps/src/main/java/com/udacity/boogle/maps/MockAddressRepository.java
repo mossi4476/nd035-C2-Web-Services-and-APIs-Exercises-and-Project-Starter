@@ -12,6 +12,7 @@ class MockAddressRepository {
 
     /**
      * Gets a random address from the list.
+     *
      * @return A new, random address split into street, city, state and zip
      */
     static Address getRandom() {
@@ -27,9 +28,9 @@ class MockAddressRepository {
 
         String[] cityStateAndZipParts = cityStateAndZip.trim().split(" ");
 
-        LinkedList<String> list =
-                Arrays.stream(cityStateAndZipParts).map(String::trim)
-                        .collect(Collectors.toCollection(LinkedList::new));
+        LinkedList<String> list = Arrays.stream(cityStateAndZipParts)
+                                        .map(String::trim)
+                                        .collect(Collectors.toCollection(LinkedList::new));
 
         String zip = list.pollLast();
         String state = list.pollLast();
